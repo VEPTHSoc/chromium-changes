@@ -1,6 +1,6 @@
 # Replacing the logos
 
-_This was the simplest problem as here I just have to replace the logo and other branding images in the theme folder. I have  replaced the chromo logo with LT Browser logo. You can find the changes in below folders and files._
+_This was the simplest problem as here I just have to replace the logo and other branding images in the theme folder. I have  replaced the chrome logo with LT Browser logo. You can find the changes in below folders and files._
 
 ```
 src/chrome/app/theme/chromium/product_logo_22_mono.png
