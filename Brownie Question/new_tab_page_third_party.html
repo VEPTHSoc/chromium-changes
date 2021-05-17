@@ -1,0 +1,1195 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="$i18n{textdirection}" lang="$i18n{language}  $i18n{hascustombackground} $i18n{isdark}>
+<head>
+
+    <meta charset="UTF-8">
+    <script type="text/javascript">(window.NREUM || (NREUM = {})).loader_config = { licenseKey: "NRJS-15a9ea9b6e428dbd49e", applicationID: "1241459542" }; window.NREUM || (NREUM = {}), __nr_require = function (e, t, n) { function r(n) { if (!t[n]) { var i = t[n] = { exports: {} }; e[n][0].call(i.exports, function (t) { var i = e[n][1][t]; return r(i || t) }, i, i.exports) } return t[n].exports } if ("function" == typeof __nr_require) return __nr_require; for (var i = 0; i < n.length; i++)r(n[i]); return r }({ 1: [function (e, t, n) { function r() { } function i(e, t, n) { return function () { return o(e, [u.now()].concat(c(arguments)), t ? null : this, n), t ? void 0 : this } } var o = e("handle"), a = e(7), c = e(8), f = e("ee").get("tracer"), u = e("loader"), s = NREUM; "undefined" == typeof window.newrelic && (newrelic = s); var d = ["setPageViewName", "setCustomAttribute", "setErrorHandler", "finished", "addToTrace", "inlineHit", "addRelease"], p = "api-", l = p + "ixn-"; a(d, function (e, t) { s[t] = i(p + t, !0, "api") }), s.addPageAction = i(p + "addPageAction", !0), s.setCurrentRouteName = i(p + "routeName", !0), t.exports = newrelic, s.interaction = function () { return (new r).get() }; var m = r.prototype = { createTracer: function (e, t) { var n = {}, r = this, i = "function" == typeof t; return o(l + "tracer", [u.now(), e, n], r), function () { if (f.emit((i ? "" : "no-") + "fn-start", [u.now(), r, i], n), i) try { return t.apply(this, arguments) } catch (e) { throw f.emit("fn-err", [arguments, this, e], n), e } finally { f.emit("fn-end", [u.now()], n) } } } }; a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","), function (e, t) { m[t] = i(l + t) }), newrelic.noticeError = function (e, t) { "string" == typeof e && (e = new Error(e)), o("err", [e, u.now(), !1, t]) } }, {}], 2: [function (e, t, n) { function r() { return c.exists && performance.now ? Math.round(performance.now()) : (o = Math.max((new Date).getTime(), o)) - a } function i() { return o } var o = (new Date).getTime(), a = o, c = e(9); t.exports = r, t.exports.offset = a, t.exports.getLastTimestamp = i }, {}], 3: [function (e, t, n) { function r(e) { return !(!e || !e.protocol || "file:" === e.protocol) } t.exports = r }, {}], 4: [function (e, t, n) { function r(e, t) { var n = e.getEntries(); n.forEach(function (e) { "first-paint" === e.name ? d("timing", ["fp", Math.floor(e.startTime)]) : "first-contentful-paint" === e.name && d("timing", ["fcp", Math.floor(e.startTime)]) }) } function i(e, t) { var n = e.getEntries(); n.length > 0 && d("lcp", [n[n.length - 1]]) } function o(e) { e.getEntries().forEach(function (e) { e.hadRecentInput || d("cls", [e]) }) } function a(e) { if (e instanceof m && !g) { var t = Math.round(e.timeStamp), n = { type: e.type }; t <= p.now() ? n.fid = p.now() - t : t > p.offset && t <= Date.now() ? (t -= p.offset, n.fid = p.now() - t) : t = p.now(), g = !0, d("timing", ["fi", t, n]) } } function c(e) { d("pageHide", [p.now(), e]) } if (!("init" in NREUM && "page_view_timing" in NREUM.init && "enabled" in NREUM.init.page_view_timing && NREUM.init.page_view_timing.enabled === !1)) { var f, u, s, d = e("handle"), p = e("loader"), l = e(6), m = NREUM.o.EV; if ("PerformanceObserver" in window && "function" == typeof window.PerformanceObserver) { f = new PerformanceObserver(r); try { f.observe({ entryTypes: ["paint"] }) } catch (v) { } u = new PerformanceObserver(i); try { u.observe({ entryTypes: ["largest-contentful-paint"] }) } catch (v) { } s = new PerformanceObserver(o); try { s.observe({ type: "layout-shift", buffered: !0 }) } catch (v) { } } if ("addEventListener" in document) { var g = !1, w = ["click", "keydown", "mousedown", "pointerdown", "touchstart"]; w.forEach(function (e) { document.addEventListener(e, a, !1) }) } l(c) } }, {}], 5: [function (e, t, n) { function r(e, t) { if (!i) return !1; if (e !== i) return !1; if (!t) return !0; if (!o) return !1; for (var n = o.split("."), r = t.split("."), a = 0; a < r.length; a++)if (r[a] !== n[a]) return !1; return !0 } var i = null, o = null, a = /Version\/(\S+)\s+Safari/; if (navigator.userAgent) { var c = navigator.userAgent, f = c.match(a); f && c.indexOf("Chrome") === -1 && c.indexOf("Chromium") === -1 && (i = "Safari", o = f[1]) } t.exports = { agent: i, version: o, match: r } }, {}], 6: [function (e, t, n) { function r(e) { function t() { e(a && document[a] ? document[a] : document[i] ? "hidden" : "visible") } "addEventListener" in document && o && document.addEventListener(o, t, !1) } t.exports = r; var i, o, a; "undefined" != typeof document.hidden ? (i = "hidden", o = "visibilitychange", a = "visibilityState") : "undefined" != typeof document.msHidden ? (i = "msHidden", o = "msvisibilitychange") : "undefined" != typeof document.webkitHidden && (i = "webkitHidden", o = "webkitvisibilitychange", a = "webkitVisibilityState") }, {}], 7: [function (e, t, n) { function r(e, t) { var n = [], r = "", o = 0; for (r in e) i.call(e, r) && (n[o] = t(r, e[r]), o += 1); return n } var i = Object.prototype.hasOwnProperty; t.exports = r }, {}], 8: [function (e, t, n) { function r(e, t, n) { t || (t = 0), "undefined" == typeof n && (n = e ? e.length : 0); for (var r = -1, i = n - t || 0, o = Array(i < 0 ? 0 : i); ++r < i;)o[r] = e[t + r]; return o } t.exports = r }, {}], 9: [function (e, t, n) { t.exports = { exists: "undefined" != typeof window.performance && window.performance.timing && "undefined" != typeof window.performance.timing.navigationStart } }, {}], ee: [function (e, t, n) { function r() { } function i(e) { function t(e) { return e && e instanceof r ? e : e ? u(e, f, a) : a() } function n(n, r, i, o, a) { if (a !== !1 && (a = !0), !l.aborted || o) { e && a && e(n, r, i); for (var c = t(i), f = v(n), u = f.length, s = 0; s < u; s++)f[s].apply(c, r); var p = d[h[n]]; return p && p.push([b, n, r, c]), c } } function o(e, t) { y[e] = v(e).concat(t) } function m(e, t) { var n = y[e]; if (n) for (var r = 0; r < n.length; r++)n[r] === t && n.splice(r, 1) } function v(e) { return y[e] || [] } function g(e) { return p[e] = p[e] || i(n) } function w(e, t) { s(e, function (e, n) { t = t || "feature", h[n] = t, t in d || (d[t] = []) }) } var y = {}, h = {}, b = { on: o, addEventListener: o, removeEventListener: m, emit: n, get: g, listeners: v, context: t, buffer: w, abort: c, aborted: !1 }; return b } function o(e) { return u(e, f, a) } function a() { return new r } function c() { (d.api || d.feature) && (l.aborted = !0, d = l.backlog = {}) } var f = "nr@context", u = e("gos"), s = e(7), d = {}, p = {}, l = t.exports = i(); t.exports.getOrSetContext = o, l.backlog = d }, {}], gos: [function (e, t, n) { function r(e, t, n) { if (i.call(e, t)) return e[t]; var r = n(); if (Object.defineProperty && Object.keys) try { return Object.defineProperty(e, t, { value: r, writable: !0, enumerable: !1 }), r } catch (o) { } return e[t] = r, r } var i = Object.prototype.hasOwnProperty; t.exports = r }, {}], handle: [function (e, t, n) { function r(e, t, n, r) { i.buffer([e], r), i.emit(e, t, n) } var i = e("ee").get("handle"); t.exports = r, r.ee = i }, {}], id: [function (e, t, n) { function r(e) { var t = typeof e; return !e || "object" !== t && "function" !== t ? -1 : e === window ? 0 : a(e, o, function () { return i++ }) } var i = 1, o = "nr@id", a = e("gos"); t.exports = r }, {}], loader: [function (e, t, n) { function r() { if (!E++) { var e = x.info = NREUM.info, t = l.getElementsByTagName("script")[0]; if (setTimeout(u.abort, 3e4), !(e && e.licenseKey && e.applicationID && t)) return u.abort(); f(h, function (t, n) { e[t] || (e[t] = n) }); var n = a(); c("mark", ["onload", n + x.offset], null, "api"), c("timing", ["load", n]); var r = l.createElement("script"); r.src = "https://" + e.agent, t.parentNode.insertBefore(r, t) } } function i() { "complete" === l.readyState && o() } function o() { c("mark", ["domContent", a() + x.offset], null, "api") } var a = e(2), c = e("handle"), f = e(7), u = e("ee"), s = e(5), d = e(3), p = window, l = p.document, m = "addEventListener", v = "attachEvent", g = p.XMLHttpRequest, w = g && g.prototype; if (d(p.location)) { NREUM.o = { ST: setTimeout, SI: p.setImmediate, CT: clearTimeout, XHR: g, REQ: p.Request, EV: p.Event, PR: p.Promise, MO: p.MutationObserver }; var y = "" + location, h = { beacon: "bam.nr-data.net", errorBeacon: "bam.nr-data.net", agent: "js-agent.newrelic.com/nr-1208.min.js" }, b = g && w && w[m] && !/CriOS/.test(navigator.userAgent), x = t.exports = { offset: a.getLastTimestamp(), now: a, origin: y, features: {}, xhrWrappable: b, userAgent: s }; e(1), e(4), l[m] ? (l[m]("DOMContentLoaded", o, !1), p[m]("load", r, !1)) : (l[v]("onreadystatechange", i), p[v]("onload", r)), c("mark", ["firstbyte", a.getLastTimestamp()], null, "api"); var E = 0 } }, {}], "wrap-function": [function (e, t, n) { function r(e, t) { function n(t, n, r, f, u) { function nrWrapper() { var o, a, s, p; try { a = this, o = d(arguments), s = "function" == typeof r ? r(o, a) : r || {} } catch (l) { i([l, "", [o, a, f], s], e) } c(n + "start", [o, a, f], s, u); try { return p = t.apply(a, o) } catch (m) { throw c(n + "err", [o, a, m], s, u), m } finally { c(n + "end", [o, a, p], s, u) } } return a(t) ? t : (n || (n = ""), nrWrapper[p] = t, o(t, nrWrapper, e), nrWrapper) } function r(e, t, r, i, o) { r || (r = ""); var c, f, u, s = "-" === r.charAt(0); for (u = 0; u < t.length; u++)f = t[u], c = e[f], a(c) || (e[f] = n(c, s ? f + r : r, i, f, o)) } function c(n, r, o, a) { if (!m || t) { var c = m; m = !0; try { e.emit(n, r, o, t, a) } catch (f) { i([f, n, r, o], e) } m = c } } return e || (e = s), n.inPlace = r, n.flag = p, n } function i(e, t) { t || (t = s); try { t.emit("internal-error", e) } catch (n) { } } function o(e, t, n) { if (Object.defineProperty && Object.keys) try { var r = Object.keys(e); return r.forEach(function (n) { Object.defineProperty(t, n, { get: function () { return e[n] }, set: function (t) { return e[n] = t, t } }) }), t } catch (o) { i([o], n) } for (var a in e) l.call(e, a) && (t[a] = e[a]); return t } function a(e) { return !(e && e instanceof Function && e.apply && !e[p]) } function c(e, t) { var n = t(e); return n[p] = e, o(e, n, s), n } function f(e, t, n) { var r = e[t]; e[t] = c(r, n) } function u() { for (var e = arguments.length, t = new Array(e), n = 0; n < e; ++n)t[n] = arguments[n]; return t } var s = e("ee"), d = e(8), p = "nr@original", l = Object.prototype.hasOwnProperty, m = !1; t.exports = r, t.exports.wrapFunction = c, t.exports.wrapInPlace = f, t.exports.argsToArray = u }, {}] }, {}, ["loader"]);</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,900|Montserrat:300,400,700" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,400;1,700" as="style">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,900|Montserrat:300,400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.lambdatest.com/assets_black_theme/css/owl.carousel.css">
+    <link rel="stylesheet" href="https://cdn.lambdatest.com/assets_black_theme/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.lambdatest.com/assets_black_theme/css/main.css?v=283">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+
+    <script>
+        function getCookie(name) {
+            var value = "; " + document.cookie;
+            var parts = value.split("; " + name + "=");
+            if (parts.length == 2) return parts.pop().split(";").shift();
+        }
+        function getLTUserID() {
+            var user_id;
+            user_id = getCookie('user_id');
+            if (user_id !== null) {
+                return user_id;
+            }
+            return '';
+        }
+    </script>
+    <!-- Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-833407987"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'AW-833407987');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-53DM3BZ');
+    </script>
+    <!-- Tracking Scripts ednss -->
+
+
+    <title>Most Powerful Cross Browser Testing Tool Online | LambdaTest</title>
+    <link rel="canonical" href="https://www.lambdatest.com">
+    <meta name="description" content="Perform manual or automated cross browser testing on 2000+ browsers online. Deploy and scale faster with the most powerful cross browser testing tool online." />
+
+    <meta name="keywords" content="cross browser testing free, cross browser testing, cross browser testing tools, crossbrowser testing, cross browser testing online, browser testing tools, online browser testing tools" />
+
+    <!--OG Tags-->
+    <meta property="og:title" content="Most Powerful Cross Browser Testing Tool Online | LambdaTest" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.lambdatest.com" />
+    <meta property="og:description" content="Perform manual or automated cross browser testing on 2000+ browsers online. Deploy and scale faster with the most powerful cross browser testing tool online.">
+    <meta property="og:image" content="https://cdn.lambdatest.com/assetsnew/images/linkedin-landing.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Most Powerful Cross Browser Testing Tool Online | LambdaTest" />
+    <meta name="twitter:description" content="Perform manual or automated cross browser testing on 2000+ browsers online. Deploy and scale faster with the most powerful cross browser testing tool online." />
+    <meta name="twitter:url" content="https://www.lambdatest.com" />
+    <meta name="twitter:image" content="https://cdn.lambdatest.com/assetsnew/images/linkedin-landing.jpg" />
+
+
+    <!--OG Tags-->
+    <style>
+        .testingbox {
+            max-width: 975px;
+        }
+
+        .testing_note {
+            font-size: 20px;
+            margin-bottom: 35px;
+        }
+
+        .clientscontainer_section {
+            padding-bottom: 0px;
+        }
+
+        @media(min-width:991px) {
+            .testing_cloud_section {
+                padding: 70px 0px 66px;
+            }
+        }
+
+        .bottom_logos .logoItem img, .transitionsSlideCol .owl-carousel .owl-item img {
+            height: auto !important;
+        }
+    </style>
+
+
+</head>
+<body>
+    <style>
+        .sitekitwebinar p {
+            font-weight: 400;
+        }
+
+        @media(max-width:993px) {
+            .sitekitwebinar p {
+                display: block;
+                margin-bottom: 16px;
+            }
+        }
+
+        @media(min-width:993px) and (max-width:1024px) {
+            .sitekitwebinar p, .sitekitwebinar .regbtn {
+                font-size: 15px !important
+            }
+        }
+    </style>
+    <div class="headerwrapper">
+        <header class="bg-white lambdaheader">
+            <div class="cookiesdiv">
+                <img src="https://cdn.lambdatest.com/assets_black_theme/images/cookie.svg" alt="Cookie" class="cookie_logo">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p>
+                                We use cookies to give you the best experience. Learn more in our <a href="https://www.lambdatest.com/legal/privacy">Privacy </a> & <a href="https://www.lambdatest.com/legal/terms-of-service">Terms of service</a>.
+                            </p>
+                        </div>
+                        <div class="col-sm-12">
+                            <a href="javascript:void(0)" class="cbtn btn_accept_ck">Got it</a>
+                            <a href="javascript:void(0)" class="cbtn btn_close_ck mob_button">Cancel</a>
+                        </div>
+                        <a href="javascript:void(0)" class="cbtn btn_close_ck closecookiewebinar desk_button">X</a>
+                    </div>
+                </div>
+            </div>
+            <div class="sitekitwebinar" style="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <!-- <p>
+                            Upcoming Webinar :   How Dunelm, a $1B Retail Giant, Does Digital Transformation and Testing
+                            </p>
+                            <a href="https://www.lambdatest.com/webinar/digital-transformation-and-beyond-with-dunelm-and-lambdaTest-webinar?utm_source=website-header&utm_medium=webinar-notification&utm_campaign=webinar&utm_term=digital-transformation-and-beyond-with-dunelm-and-lambdaTest-webinar" class="regbtn" target="_blank">Register Now ></a>
+                             -->
+                            <p>
+                                Coding Jag - Get The Best News Around Test, DevOps & Automation To Your Inbox, Weekly!
+                            </p>
+                            <a href="https://www.lambdatest.com/newsletter/" class="regbtn" target="_blank">Subscribe Now ></a>
+
+
+                        </div>
+                    </div>
+                    <a href="#none" class="closesitewebinar">
+                        X
+                    </a>
+                </div>
+            </div>
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand" href="https://www.lambdatest.com/"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logo.svg" alt="LambdaTest" title="LambdaTest" width="147" height="26" /></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://www.lambdatest.com/feature">Live</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://www.lambdatest.com/selenium-automation">Automation</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://www.lambdatest.com/pricing">Pricing</a>
+                            </li>
+                            <li class="nav-item dropdown rs-dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">Resources <i class="arrow down"></i></a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="https://www.lambdatest.com/blog">Blog</a>
+                                    <a class="dropdown-item" href="https://www.lambdatest.com/certifications/">Certifications</a>
+                                    <a class="dropdown-item" href="https://www.lambdatest.com/learning-hub/">Learning Hub</a>
+                                    <a class="dropdown-item" href="https://www.lambdatest.com/webinar/">Webinars</a>
+                                    <a class="dropdown-item" href="https://www.lambdatest.com/newsletter/">Newsletter</a>
+                                    <a class="dropdown-item" href="https://community.lambdatest.com/" target="_blank" rel="nofollow noopener">Community</a>
+                                    <a class="dropdown-item" href="https://www.lambdatest.com/customers/">Case Studies</a>
+                                    <a class="dropdown-item" href="https://www.lambdatest.com/blog/category/lambdatest-updates/">Product Updates</a>
+
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://www.lambdatest.com/support/">Support</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://accounts.lambdatest.com/login">Log in</a>
+                            </li>
+                            <li class="nav-item sign-up-li">
+                                <a class="nav-link" href="https://accounts.lambdatest.com/register" onclick="onStartTesting()">Start Free Testing</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+    </div>
+
+    <div class="homepage_content_wrapper">
+        <section class="testing_cloud_section">
+            <div class="container">
+                <div class="testingbox">
+                    <h1 class="big_title text_shadow_black">Cross Browser Testing Cloud</h1>
+                    <p class="testing_note">
+                        Perform Live Interactive and Automated Cross Browser Testing on <br>
+                        2000+ Real Browsers and Operating Systems Online
+                    </p>
+                    <form class="input-group start_test_form blue_form mb-3" id="testing_form">
+                        <input id="useremail" type="email" class="form-control border-dark" placeholder="Your email address" required>
+                        <div class="input-group-append">
+                            <button type="submit" class="input-group-text">Start Free Testing</button>
+                        </div>
+                        <input type="hidden" id="zc_gad" name="zc_gad" value="" />
+                    </form>
+                    <div class="ticklistbox">
+                        <ul class="tick-list">
+                            <li>No Credit Card Required</li>
+                            <li>Free Sign Up</li>
+                            <li>Cancel Anytime</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="clientscontainer_section white-bg">
+            <div class="container">
+                <h2 class="text_shadow_black">Trusted By 420,000+ Users</h2>
+                <div class="bottom_logos owl-carousel owl-theme" id="bottom_logos">
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/Fabric.png" alt="LambdaTest Client - Fabric-com" title="Fabric-com" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/Cisco.svg" alt="LambdaTest Client - Cisco" title="Cisco" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/zoho.png" alt="LambdaTest Client - Zoho" title="Zoho" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/GoDaddy.svg" alt="LambdaTest Client - GoDaddy" title="GoDaddy" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/Capegemini.svg" alt="LambdaTest Client - Capegemini" title="Capegemini" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/DANONE.svg" alt="LambdaTest Client - DANONE" title="DANONE" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/H2O.svg" alt="LambdaTest Client - H2O.ai" title="H2O.ai" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/UCSC.svg" alt="LambdaTest Client - UCSC" title="UCSC" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/Edureka.png" alt="LambdaTest Client - Edureka" title="Edureka" loading="lazy" width="110" height="37" /></div>
+                    <!--<div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/Brother.svg" alt="LambdaTest Client - Brother" title="Brother" loading="lazy" width="110" height="37"/></div>-->
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/Deloitte.svg" alt="LambdaTest Client - Deloitte" title="Deloitte" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/Directi.svg" alt="LambdaTest Client - Directi" title="Directi" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/Media_net.svg" alt="LambdaTest Client - Media.Net" title="Media.Net" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/GE_Monogram.svg" alt="LambdaTest Client - GE Monogram" title="GE Monogram" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/Newsela.svg" alt="LambdaTest Client - Newsela" title="Newsela" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/Scholastic.svg" alt="LambdaTest Client - Scholastic" title="Scholastic" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/Heidelberg.png" alt="LambdaTest Client - Heidelberg" title="Heidelberg" loading="lazy" width="110" height="37" /></div>
+
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/Trilogy.png" alt="LambdaTest Client - Trilogy" title="Trilogy" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/Finnair.svg" alt="LambdaTest Client - Finnair" title="Finnair" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/Trustpilot.svg" alt="LambdaTest Client - Trustpilot" title="Trustpilot" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/NoonPayments.jpg" alt="LambdaTest Client - Noon Payments" title="Noonpayments" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/Apple.jpg" alt="LambdaTest Client - Apple" title="Apple" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/CloudBees.jpg" alt="LambdaTest Client - Cloud Bees" title="Cloud Bees" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/tech-mahindra.png" alt="LambdaTest Client - Tech Mahindra" title="Tech Mahindra" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/penguin.png" alt="LambdaTest Client - Penguin" title="Penguin" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/medline-1.png" alt="LambdaTest Client - Medline" title="Medline" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/morrisons.png" alt="LambdaTest Client - Morrisons" title="Morrisons" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/harvard.svg" alt="LambdaTest Client - Harvard Business Review" title="Harvard Business" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/Decathlon.svg" alt="LambdaTest Client - Decathlon" title="Decathlon" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/MS.svg" alt="LambdaTest Client - Microsoft" title="Microsoft" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/Xerox.svg" alt="LambdaTest Client - Xerox" title="Xerox" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/Yale.svg" alt="LambdaTest Client - Yale" title="Yale" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/ATP-Tour.svg" alt="LambdaTest Client - ATP" title="ATP" loading="lazy" width="110" height="37" /></div>
+                    <div class="logoItem items"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/clients/Hubspot.svg" alt="LambdaTest Client - HubSpot" title="HubSpot" loading="lazy" width="110" height="37" /></div>
+
+                </div>
+            </div>
+        </section>
+        <section class="featureslide_section">
+            <img class="slide-bg-img" src="https://cdn.lambdatest.com/assets_black_theme/images/bg-pink.svg" alt="Pink" loading="lazy" width="224" height="459" />
+            <div class="container">
+                <div class="row inner-text">
+                    <div class="col-12 col-sm-7 col-md-7 pr-md-5 transitionsSlideCol">
+                        <div class="owl-carousel owl-theme" id="feature-slide" data-slider-id="1">
+                            <div class="item">
+                                <img src="https://cdn.lambdatest.com/assets_black_theme/images/slider/slider-automated.png" title="Automated Web Testing" alt="Automated Browser Testing Tools" loading="lazy" width="946" height="696" />
+                            </div>
+                            <div class="item">
+                                <img src="https://cdn.lambdatest.com/assets_black_theme/images/slider/real-time.png" alt="live interactive automated browser testing tools" title="real time website testing tools" loading="lazy" width="946" height="698" />
+                            </div>
+                            <div class="item">
+                                <img src="https://cdn.lambdatest.com/assets_black_theme/images/slider/slider-screenshot.png" alt="Automated Screenshot Testing" title="Screenshot Testing by LambdaTest" loading="lazy" width="946" height="700" />
+                            </div>
+                            <div class="item">
+                                <img src="https://cdn.lambdatest.com/assets_black_theme/images/slider/slider-responsive.png" title="Responsive Website Testing" alt="Responsive Testing Tools" loading="lazy" width="944" height="750" />
+                            </div>
+                            <div class="item">
+                                <video width="100%" autoplay="" loop="" muted="" id="vid">
+                                    <source src="https://cdn.lambdatest.com/assets_black_theme/images/slider/lt-browser.webm" type="video/webm" data-ce-key="84">
+                                    Your browser does not support HTML5 video.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-5 col-md-5 pl-md-4">
+                        <div class="owl-thumbs" data-slider-id="1">
+                            <div class="owl-thumb-item">
+                                <div class="thumb-titel">
+                                    <span class="img-box-thumb">
+                                        <img class="img-fluid" src="https://cdn.lambdatest.com/assets_black_theme/images/circle.svg" alt="oval" loading="lazy" width="14" height="14" />
+                                    </span>
+                                    Automated Testing
+                                </div>
+                                <div class="owl-thumb-content">
+                                    Perform automated browser tests on a scalable, secure, and reliable online Selenium grid. Execute Selenium scripts to perform automated cross browser testing across 2000+ browsers.<span><a href="https://www.lambdatest.com/selenium-automation">Learn more <img src="https://cdn.lambdatest.com/assets_black_theme/images/arrows.svg" alt="arrow" loading="lazy" width="15" height="15" /></a></span>
+                                </div>
+                            </div>
+                            <div class="owl-thumb-item">
+                                <div class="thumb-titel">
+                                    <span class="img-box-thumb">
+                                        <img class="img-fluid" src="https://cdn.lambdatest.com/assets_black_theme/images/diamond.svg" alt="diamond" loading="lazy" width="15" height="15" />
+                                    </span>
+                                    Live Testing
+                                </div>
+                                <div class="owl-thumb-content">
+                                    Perform live interactive cross browser testing of your public or locally hosted websites and web apps on 2000+ real mobile and desktop browsers running on real operating system.<span><a href="https://www.lambdatest.com/feature">Learn more <img src="https://cdn.lambdatest.com/assets_black_theme/images/arrows.svg" alt="arrow" loading="lazy" width="15" height="15" /></a></span>
+                                </div>
+                            </div>
+                            <div class="owl-thumb-item">
+                                <div class="thumb-titel">
+                                    <span class="img-box-thumb">
+                                        <img class="img-fluid" src="https://cdn.lambdatest.com/assets_black_theme/images/square.svg" alt="square" loading="lazy" width="14" height="14" />
+                                    </span>
+                                    Screenshot
+                                </div>
+                                <div class="owl-thumb-content">
+                                    Auto-generate full-paged screenshots of your web pages across multiple devices, OSs, browsers, and resolutions in a single click to perform visual cross browser testing.<span><a href="https://www.lambdatest.com/automated-screenshot">Learn more <img src="https://cdn.lambdatest.com/assets_black_theme/images/arrows.svg" alt="Arrow" loading="lazy" width="15" height="15" /></a></span>
+                                </div>
+                            </div>
+                            <div class="owl-thumb-item">
+                                <div class="thumb-titel">
+                                    <span class="img-box-thumb">
+                                        <img class="img-fluid" src="https://cdn.lambdatest.com/assets_black_theme/images/circle-outlined.svg" alt="circle outline" loading="lazy" width="18" height="18" />
+                                    </span>
+                                    Responsive
+                                </div>
+                                <div class="owl-thumb-content">
+                                    Now with just one click, check the responsiveness of your website or web apps across multiple popular Android and iOS mobile devices and screen sizes.<span><a href="https://www.lambdatest.com/responsive-test-online">Learn more <img src="https://cdn.lambdatest.com/assets_black_theme/images/arrows.svg" alt="arrow icon" loading="lazy" width="15" height="15" /></a></span>
+                                </div>
+                            </div>
+                            <div class="owl-thumb-item">
+                                <div class="thumb-titel">
+                                    <span class="img-box-thumb">
+                                        <img class="img-fluid" src="https://cdn.lambdatest.com/assets_black_theme/images/tilted-rectengle.svg" alt="rectangle" loading="lazy" width="16" height="18" />
+                                    </span>
+                                    LT Browser
+                                </div>
+                                <div class="owl-thumb-content">
+                                    Deliver websites faster with LT Browser. A developer-friendly browser that delivers mobile view of website on 25+ devices with live testing & debugging on the go.<span><a href="https://www.lambdatest.com/lt-browser">Learn more <img src="https://cdn.lambdatest.com/assets_black_theme/images/arrows.svg" alt="arrow" loading="lazy" width="15" height="15" /></a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="info_section leftcontentinfo_section gray-bg">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-sm-6">
+                        <div class="clearfix firstbox infobox">
+                            <h2 class="text_shadow_black text-initial">Selenium Test Automation on Online Desktop Android and iOS Mobile Browsers</h2>
+                            <p>Run your Selenium test automation scripts across online selenium grid of desktop, Android and iOS mobile browsers.  Develop, test, and deliver faster every time with automated cross browser testing using LambdaTest online Automation Browser Testing Grid.</p>
+                            <a class="btn-more" href="https://accounts.lambdatest.com/register">Get Started</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="clearfix secondbox infobox">
+                            <img class="img-fluid img-center" src="https://cdn.lambdatest.com/assets_black_theme/images/automate.svg" title="Automated Browser Testing on Android and iOS Mobile Browsers" alt="Automated Browser Testing Tools" loading="lazy" width="424" height="245" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="info_section rightcontentinfo_section white-bg relative">
+            <img class="yello-bg" src="https://cdn.lambdatest.com/assets_black_theme/images/bg-yellow.svg" alt="yellow" loading="lazy" width="198" height="436" />
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="clearfix secondbox infobox">
+                            <img class="img-fluid" src="https://cdn.lambdatest.com/assets_black_theme/images/slider/real-time.png" alt="live interactive browser testing tools" title="real time website testing tools" loading="lazy" width="946" height="698" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="clearfix firstbox infobox">
+                            <h2 class="text_shadow_black">Cross Browser Testing on Desktop And Mobile Browsers</h2>
+                            <p>You can choose from a wide range of Windows and Mac operating systems, along with all legacy and latest browsers. Also test your website or web app on latest mobile browsers with Android and iOS mobile operating systems.</p>
+                            <a class="btn-more" href="https://www.lambdatest.com/list-of-browsers">All Browsers and Devices</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="trylambda_section">
+            <div class="container seagreen-bg">
+                <div class="row trylambdarow">
+                    <div class="col-sm-6">
+                        <div class="clearfix trylambda_box">
+                            <h3 class="text_shadow_black">Try LambdaTest Now !!</h3>
+                            <p class="mt-3">Get 60 minutes of Live interactive testing every month FREE !! The only free for lifetime Cross Browser Testing Tool.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="clearfix">
+                            <form class="input-group start_test_form mb-3" id="testing_form">
+                                <input id="useremail" type="email" class="form-control border-dark" placeholder="Your email address" required>
+                                <div class="input-group-append">
+                                    <button type="submit" class="input-group-text">Start Free Testing</button>
+                                </div>
+                                <input type="hidden" id="zc_gad" name="zc_gad" value="" />
+                            </form>
+                            <div class="ticklistbox">
+                                <ul class="tick-list">
+                                    <li>No Credit Card Required</li>
+                                    <li>Free Sign Up</li>
+                                    <li>Cancel Anytime</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="morereasonstolove_section white-bg">
+            <div class="container">
+                <div class="morereasoninfo text-center">
+                    <h2 class="text_shadow_black">More Reasons To Love LambdaTest</h2>
+                    <p>It's not just about infrastructure, you get a whole range of complimentary features that will make your cross browser testing experience smoother and help you ship products faster.</p>
+                </div>
+                <div class="row pt60">
+                    <div class="col-sm-4">
+                        <div class="clearfix morereasonbox morereasonbox1">
+                            <img src="https://cdn.lambdatest.com/assets_black_theme/images/polygon-1.svg" alt="Integrated developer tools" title="Integrated Debugging Tools" loading="lazy" width="64" height="70" />
+                            <h3 class="text_shadow_black">Integrated Debugging</h3>
+                            <p>Integrated developer tools to help you debug issues in live testing.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="clearfix morereasonbox morereasonbox2">
+                            <img src="https://cdn.lambdatest.com/assets_black_theme/images/Polygon_Locally_Hosted.svg" title="Locally Hosted
+Website Testing" alt="automated browser testing tools to test locally hosted websites" loading="lazy" width="58" height="64" />
+                            <h3 class="text_shadow_black">Testing Locally<br> Hosted Pages</h3>
+                            <p>Local hosted web testing to save your website or web application from after deployment bugs.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="clearfix morereasonbox morereasonbox3">
+                            <img src="https://cdn.lambdatest.com/assets_black_theme/images/polygon-3.svg" alt="Geo Location Testing" title="Automated Browser Testing from Different Locations" loading="lazy" width="59" height="64" />
+                            <h3 class="text_shadow_black">Geo Location Testing</h3>
+                            <p>Test from different locations to make sure your users get perfect experience across all locations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="seamlesscollab_section white-bg">
+            <img class="purple-bg" src="https://cdn.lambdatest.com/assets_black_theme/images/bg-purple.svg" alt="purple-bg" loading="lazy" width="145" height="354" />
+            <div class="container">
+                <div class="morereasoninfo text-center relative">
+                    <h2 class="text_shadow_black">Seamless Collaboration</h2>
+                    <p>
+                        Integrate LambdaTest with your favorite tool and save yourself from manually managing bugs and tasks. Also fits with your CI/CD pipeline.
+                    </p>
+                </div>
+                <div class="clientlogsbox relative">
+                    <ul class="client-logo">
+                        <li><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/collabs/bitbucket.svg" alt="Integration with Bitbucket" title="Bitbucket" loading="lazy" width="200" height="80" /></li>
+                        <li><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/collabs/asana.svg" alt="LambdaTest Integration with Asana" title="Asana" loading="lazy" width="200" height="80" /></li>
+                        <li><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/collabs/slack.svg" alt="LambdaTest Integration with Slack" title="Slack" loading="lazy" width="200" height="80" /></li>
+                        <li><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/collabs/gitlab.svg" alt="Integration with GitLab" title="GitLab" loading="lazy" width="200" height="80" /></li>
+                        <li><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/collabs/Trello.svg" alt="LambdaTest Integration with Trello" title="Trello" loading="lazy" width="200" height="80" /></li>
+                        <li><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/collabs/Jenkins.svg" alt="LambdaTest Integration with Jenkins" title="Jenkins" loading="lazy" width="200" height="80" /></li>
+                        <li><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/collabs/github.svg" alt="Integration with GitHub" title="GitHub" loading="lazy" width="200" height="80" /></li>
+                        <li><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/collabs/CircleCI.svg" alt="LambdaTest Integration with CircleCI" title="CircleCI" loading="lazy" width="200" height="80" /></li>
+                        <li><img src="https://cdn.lambdatest.com/assets_black_theme/images/logos/collabs/jira.svg" alt="LambdaTest Integration with Jira" title="Jira" loading="lazy" width="200" height="80" /></li>
+                    </ul>
+                    <div class="text-center">
+                        <a href="https://www.lambdatest.com/integrations" class="seeintbtn">See All Integrations <img src="https://cdn.lambdatest.com/assets_black_theme/images/right_arrow_black.svg" alt="LambdaTest Integrations" title="See All Integrations" loading="lazy" width="15" height="15" /></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="reviews_section white-bg">
+            <div class="container-fluid plr0">
+                <h2 class="text_shadow_black text-center">What Our Users Say About Us</h2>
+                <div class="owl-carousel owl-theme" id="review-box">
+                    <div class="item">
+                        Truly amazing product, Fast, easy to use, and save a lot of time. Great work LambdaTest.
+                        <div class="user-list-box">
+                            <div class="user-icons">
+                                <img class="img-fluid" src="https://cdn.lambdatest.com/assets_black_theme/images/testimonials/Livspace.jpg" alt="Livspace" title="Ramakant - Livspace" loading="lazy" width="40" height="47" />
+                            </div>
+                            <span class="user-name">Ramakant</span>
+                            <span class="user-profile">Livspace</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        I'm quite impressed what you have been able to pull off in virtually no time, as well as the responsiveness from your site.
+                        <div class="user-list-box">
+                            <div class="user-icons">
+                                <img class="img-fluid" src="https://cdn.lambdatest.com/assets_black_theme/images/testimonials/bitnissen.png" alt="Bitnissen" title="Morten Skyt Eriksen - Bitnissen" loading="lazy" width="40" height="47" />
+                            </div>
+                            <span class="user-name">Morten Skyt Eriksen</span>
+                            <span class="user-profile">Bitnissen</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        For all web and mobile developers out there, I totally recommend LambdaTest!!!
+                        <div class="user-list-box">
+                            <div class="user-icons">
+                                <img class="img-fluid" src="https://cdn.lambdatest.com/assets_black_theme/images/testimonials/Amazon.jpg" alt="Amazon" title="Sameer - Amazon" loading="lazy" width="40" height="47" />
+                            </div>
+                            <span class="user-name">Sameer</span>
+                            <span class="user-profile">Amazon</span>
+                        </div>
+                    </div>
+                    <!-- <div class="item">
+                      The ability to test the dev pages itself though LambdaTest, really speeds up the release.
+                      <div class="user-list-box">
+                        <div class="user-icons">
+                          <img class="img-fluid" src="https://cdn.lambdatest.com/assets_black_theme/images/testimonials/W.png" alt="Walmart" title="Wang Wei - Walmart" loading="lazy"/>
+                        </div>
+                        <span class="user-name">Wang Wei</span>
+                        <span class="user-profile">Walmart</span>
+                      </div>
+                    </div> -->
+                    <div class="item">
+                        @LambdaTest greatly reduced my team’s overall testing time and release time. Awesome tool!
+                        <div class="user-list-box">
+                            <div class="user-icons">
+                                <img class="img-fluid" src="https://cdn.lambdatest.com/assets_black_theme/images/testimonials/Zenefits.jpg" alt="Zenefit" title="Brian - Zenefit" loading="lazy" width="40" height="47" />
+                            </div>
+                            <span class="user-name">Brian</span>
+                            <span class="user-profile">Zenefit</span>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        Allowed us to tackle problems we didn’t even know existed before. Nice Tool @LambdaTest
+                        <div class="user-list-box">
+                            <div class="user-icons">
+                                <img class="img-fluid" src="https://cdn.lambdatest.com/assets_black_theme/images/testimonials/H_M.jpg" alt="H&M" title="Samantha Michelle - H&M" loading="lazy" width="40" height="47" />
+                            </div>
+                            <span class="user-name">Samantha Michelle</span>
+                            <span class="user-profile">H&M</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="starttesting_section">
+            <div class="container">
+                <div class="testingbox">
+                    <h2 class="text_shadow_black">Ready to Get Started?</h2>
+                    <p class="testing_note">
+                        Signup to use LambdaTest, it's completely <br>free to get started with
+                    </p>
+                    <form class="input-group start_test_form mb-3" id="testing_form">
+                        <input id="useremail" type="email" class="form-control border-dark" placeholder="Your email address" required>
+                        <div class="input-group-append">
+                            <button type="submit" class="input-group-text">Start Free Testing</button>
+                        </div>
+                        <input type="hidden" id="zc_gad" name="zc_gad" value="" />
+                    </form>
+                    <div class="ticklistbox">
+                        <ul class="tick-list">
+                            <li>No Credit Card Required</li>
+                            <li>Free Sign Up</li>
+                            <li>Cancel Anytime</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-2 col-md-3 first-col">
+                    <ul class="get-touch">
+                        <li class="cup">
+                            <a href="https://www.lambdatest.com/demo">
+                                <img alt="Schedule a demo with LambdaTest" src="https://cdn.lambdatest.com/assets_black_theme/images/coffee.svg" loading="lazy" width="19" height="19" />Book a Demo
+                            </a>
+                        </li>
+                        <li class="calls">
+                            <a href="tel:+1-(866)-430-7087" onclick="onClickCallUs()">
+                                <img alt="Call LambdaTest Support" src="https://cdn.lambdatest.com/assets_black_theme/images/call.svg" loading="lazy" width="19" height="21" />Call Us
+                            </a>
+                        </li>
+                        <li class="chatting">
+                            <a href="javascript:void(0)" onclick="openLTChatWidget(); onClickChatBtn()">
+                                <img alt="Chat with LambdaTest Customer Support" src="https://cdn.lambdatest.com/assets_black_theme/images/chat.svg" loading="lazy" width="20" height="20" />
+                                <span class="startchat">Chat with Us</span>
+                                <span class="contact">Contact Us</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <ul class="call-us">
+                        <li class="heading">Help & Support</li>
+                        <li>
+                            <a href="tel:+1-(866)-430-7087">+1-(866)-430-7087</a>
+                        </li>
+                        <li>
+                            <a href="/cdn-cgi/l/email-protection#a8dbddd8d8c7dadce8e4c9c5caccc9fccddbdc86cbc7c5" onclick="onClickEmailBtn()"><span class="__cf_email__" data-cfemail="1665636666796462565a777b747277427365623875797b">[email&#160;protected]</span></a>
+                        </li>
+                        <!-- <li><a href="https://www.lambdatest.com/"><img src="https://cdn.lambdatest.com/assets_black_theme/images/logo.svg" class="img-responsive mt20 mb20" alt="LambdaTest"></a></li>
+                        -->
+                    </ul>
+                </div>
+                <div class="col-xl-2 col-md-3">
+                    <h6 class="footer-menu-heading">Products & Features</h6>
+                    <ul class="footer-menu">
+                        <li><a href="https://www.lambdatest.com/selenium-automation">Automation</a></li>
+                        <li>
+                            <a href="https://www.lambdatest.com/feature">Browser Testing</a>
+                        </li>
+                        <li><a href="https://www.lambdatest.com/lt-browser">LT Browser</a></li>
+                        <li><a href="https://www.lambdatest.com/local-page-testing">Local Page Testing</a></li>
+                        <li>
+                            <a href="https://www.lambdatest.com/automated-screenshot">Automated Screenshots</a>
+                        </li>
+                        <li><a href="https://www.lambdatest.com/geolocation-testing">Geo-Location Testing</a></li>
+                        <li>
+                            <a href="https://www.lambdatest.com/responsive-test-online">Responsive Testing</a>
+                        </li>
+                        <li><a href="https://www.lambdatest.com/smart-visual-ui-testing">Smart Testing</a></li>
+                        <li>
+                            <a href="https://www.lambdatest.com/integrations">Integrations</a>
+                        </li>
+                        <li><a href="https://status.lambdatest.io/" target="_blank">Status</a></li>
+                        <li>
+                            <a href="https://www.lambdatest.com/support-faq">FAQ</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="col-xl-2 col-md-3">
+                    <h6 class="footer-menu-heading">Browsers</h6>
+                    <ul class="footer-menu">
+                        <li>
+                            <a href="https://www.lambdatest.com/list-of-browsers">List of Browsers</a>
+                        </li>
+                        <li>
+                            <a href="https://www.lambdatest.com/test-on-internet-explorer-browsers">Test on IE</a>
+                        </li>
+                        <li><a href="https://www.lambdatest.com/test-on-firefox-browsers">Test on Firefox</a></li>
+                        <li><a href="https://www.lambdatest.com/test-on-chrome-browsers">Test on Chrome</a></li>
+                        <li><a href="https://www.lambdatest.com/test-on-safari-browsers">Test on Safari</a></li>
+                        <li><a href="https://www.lambdatest.com/test-on-edge-browsers">Test on Edge</a></li>
+                        <li>
+                            <a href="https://www.lambdatest.com/test-on-opera-browsers">Test on Opera</a>
+                        </li>
+                        <li><a href="https://www.lambdatest.com/test-on-yandex-browsers">Test on Yandex</a></li>
+                        <li>
+                            <a href="https://www.lambdatest.com/test-internet-explorer-on-mac">Test on Mac</a>
+                        </li>
+                        <li>
+                            <a href="https://www.lambdatest.com/test-on-mobile-devices">Test on Mobile</a>
+                        </li>
+                        <li>
+                            <a href="https://www.lambdatest.com/test-on-ios-devices">Test on iOS Simulator</a>
+                        </li>
+                        <li>
+                            <a href="https://www.lambdatest.com/browser-emulator-online">Test on Android Emulator</a>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="col-xl-2 col-md-3">
+                    <h6 class="footer-menu-heading">Resources</h6>
+                    <ul class="footer-menu">
+                        <li>
+                            <a href="https://www.lambdatest.com/blog/">Blogs</a>
+                        </li>
+                        <li>
+                            <a href="https://www.lambdatest.com/press/">Press</a>
+                        </li>
+                        <li><a href="https://community.lambdatest.com/">Community</a></li>
+                        <li><a href="https://www.lambdatest.com/certifications/">Certifications</a></li>
+                        <li><a href="https://www.lambdatest.com/learning-hub/">Learning Hub</a></li>
+                        <li><a href="https://www.lambdatest.com/blog/category/lambdatest-updates/">Product Updates</a></li>
+                        <li>
+                            <a href="https://www.lambdatest.com/newsletter/">Newsletter</a>
+                        </li>
+                        <!-- <li><a href="https://www.lambdatest.com/selenium-playground/">Selenium Playground</a></li> -->
+                        <li>
+                            <a href="https://www.lambdatest.com/webinar/">Webinars</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="d-xl-none col-md-3"></div>
+                <div class="col-xl-2 col-md-3">
+                    <h6 class="footer-menu-heading">Company</h6>
+                    <ul class="footer-menu">
+                        <li>
+                            <a href="https://www.lambdatest.com/about">About Us</a>
+                        </li>
+                        <li>
+                            <a href="https://www.lambdatest.com/customers/">Customers</a>
+                        </li>
+                        <li><a href="https://www.lambdatest.com/reviews">Reviews</a></li>
+                        <li><a href="https://www.lambdatest.com/partners">Partners</a></li>
+                        <li><a href="https://www.lambdatest.com/reseller/">Reseller</a></li>
+                        <li><a href="https://www.lambdatest.com/affiliate-program-partnership">Become an Affiliate</a></li>
+                        <li>
+                            <a href="https://www.lambdatest.com/legal/terms-of-service">Terms of service</a>
+                        </li>
+                        <li><a href="https://www.lambdatest.com/legal/privacy">Privacy Policy</a></li>
+                        <li>
+                            <a href="https://www.lambdatest.com/career">Careers</a>
+                        </li>
+                        <li>
+                            <a href="https://www.lambdatest.com/team">Team</a>
+                        </li>
+                        <li>
+                            <a href="https://www.lambdatest.com/contact-us">Contact Us</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="col-xl-2 col-md-3">
+                    <h6 class="footer-menu-heading">What’s New</h6>
+                    <ul class="footer-menu" style="border-bottom: 2px solid #dbddec;;">
+                        <li><a href="https://changelog.lambdatest.com/">Change Log</a></li>
+                    </ul>
+                    <ul class="footer-menu daily-items">
+
+                        <li>
+                            <a href="https://www.lambdatest.com/selenium">Introduction to Selenium Basics</a>
+                        </li>
+                        <li><a href="https://www.lambdatest.com/blog/selenium-github-actions-example/">Selenium Testing with GitHub Actions</a></li>
+                        <li><a href="https://www.lambdatest.com/blog/march-2021-product-updates/">March’21 Updates</a></li>
+                        <li><a href="https://www.lambdatest.com/blog/expected-conditions-in-selenium-examples/">What Is Expected Conditions In Selenium</a></li>
+                        <li>
+                            <a class="l_modal" data-toggle="modal" data-target="#video1"> <img src="https://cdn.lambdatest.com/assets_black_theme/images/lt-browser/play.png" alt="Play" class="playbtn">Jenkins Tutorial For Beginners </a>
+                        </li>
+                        <li>
+                            <a class="l_modal" data-toggle="modal" data-target="#video2"> <img src="https://cdn.lambdatest.com/assets_black_theme/images/lt-browser/play.png" alt="Play" class="playbtn">Getting Started With LT Browser  </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <section class="footer-copy-right">
+            <div class="container">
+                <div class="row copy-right-row justify-content-between">
+                    <div>
+                        <p class="copy-right-para">© 2021 LambdaTest. All rights reserved</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="copy-right-para text-center">Cross Browser Testing Cloud Built With <img src="https://www.lambdatest.com/assets_black_theme/images/heart.svg" alt="Love" loading="lazy" width="512" height="512" class="img-fluid" /> For Testers</p>
+                    </div>
+                    <div>
+                        <ul class="social-icons">
+                            <li class="fb">
+                                <a href="https://www.facebook.com/lambdatest/" target="_blank">
+                                    <img src="https://cdn.lambdatest.com/assets_black_theme/images/facebook-logo.png" alt="Like Lambdatest on Facebook" onclick="onClickSocialIcon('Facebook')" loading="lazy" width="15" height="15" />
+                                </a>
+                            </li>
+                            <li class="twitter">
+                                <a href="https://twitter.com/Lambdatesting" target="_blank">
+                                    <img src="https://cdn.lambdatest.com/assets_black_theme/images/twitter-logo.png" alt="LambdaTest Twitter" onclick="onClickSocialIcon('Twitter')" loading="lazy" width="16" height="16" />
+                                </a>
+                            </li>
+                            <li class="linkedin">
+                                <a href="https://www.linkedin.com/company/lambdatest/" target="_blank">
+                                    <img src="https://cdn.lambdatest.com/assets_black_theme/images/linkedn.svg" alt="Follow LambdaTest on Linkedin" onclick="onClickSocialIcon('Linkedin')" loading="lazy" width="15" height="13" />
+                                </a>
+                            </li>
+                            <li class="youtube-icons">
+                                <a href="https://www.youtube.com/channel/UCCymWVaTozpEng_ep0mdUyw?sub_confirmation=1" target="_blank">
+                                    <img src="https://cdn.lambdatest.com/assets_black_theme/images/youtube-logo.png" alt="Subscribe LambdaTest on Youtube" onclick="onClickSocialIcon('Youtube')" loading="lazy" width="16" height="16" />
+                                </a>
+                            </li>
+                            <li class="github-icon">
+                                <a href="https://github.com/LambdaTest/" target="_blank">
+                                    <img src="https://cdn.lambdatest.com/assets_black_theme/images/github_icon.png" alt="GitHub" onclick="onClickSocialIcon('GitHub')" loading="lazy" width="16" height="16" />
+                                </a>
+                            </li>
+                            <li class="pintrest-icon">
+                                <a href="https://www.pinterest.com/lambdatest/" target="_blank">
+                                    <img src="https://cdn.lambdatest.com/assets_black_theme/images/pinterst.svg" alt="Pinterest" onclick="onClickSocialIcon('Pinterest')" style="width: 28px;" loading="lazy" width="12" height="14">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </footer>
+    <!-- video modal code here -->
+    <div class="modal fade lt_video" id="video1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="embed-responsive">
+                        <div class="iframe_main">
+                            <div class="footer_iframe" data-embed="2w-_JOK96Uc">
+                                <div class="play-button"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade lt_video" id="video2">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="embed-responsive">
+
+                        <div class="iframe_main">
+                            <div class="footer_iframe" data-embed="Vn1RX9GMXtw">
+                                <div class="play-button"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- video modal code end here -->
+    <!-- footer js starts from here -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="https://cdn.lambdatest.com/assets_black_theme/js/jquery.js"></script>
+    <script src="https://cdn.lambdatest.com/assets_black_theme/js/popper.min.js"></script>
+    <script src="https://cdn.lambdatest.com/assets_black_theme/js/bootstrap.min.js"></script>
+    <script src="https://cdn.lambdatest.com/assets_black_theme/js/owl.carousel.js"></script>
+    <script src="https://cdn.lambdatest.com/assets_black_theme/js/owl.carousel2.thumbs.min.js"></script>
+    <script src="https://cdn.lambdatest.com/assets_black_theme/js/custom.js?v=283"></script>
+    <script defer src="https://cdn.lambdatest.com/assets/js/click-tracking.js?v=283"></script>
+
+    <!-- Tracking scripts starts here -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script defer src="https://cdn.lambdatest.com/assetsnew/js/jquery.cookie.js?v=283"></script>
+    <script defer src="https://cdn.lambdatest.com/assetsnew/js/formjs.js?v=283"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".start_test_form").submit(function (event) {
+                event.preventDefault(); //prevent default action POST
+                var myusername = $(this).serialize();
+                var email = $(this).children('.form-control').val();
+                userdata = {
+                    email: email
+                }
+                // userdata = JSON.stringify(userdata);
+                console.log(userdata);
+                $.ajax({
+                    type: "post",
+                    url: "https://backend.lambdatest.com/api/user/status",
+                    data: userdata
+                }).done(function (response, textStatus) {
+                    console.log(response.type, textStatus);
+                    dataLayer.push({
+                        'event': 'eventToSend',
+                        'eventCategory': 'Click',
+                        'eventAction': 'StartTestingClick',
+                        'eventLabel': window.location.href,
+                    });
+                    if (response.type == 'exists') {
+                        window.location.href = "https://accounts.lambdatest.com/login?email=" + email;
+                    } else {
+                        window.location.href = "https://accounts.lambdatest.com/register?email=" + email;
+                    }
+
+                });
+            });
+
+            $("#featureForm").submit(function (event) {
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                var formdata = $(this).serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "https://backend.lambdatest.com/api/forms/contact",
+                    data: formdata,
+                    success: function (response) {
+                        $(".feature_alert").removeClass('d-none');
+                        $('#featureForm').trigger("reset");
+                        setTimeout(function () {
+                            $(".feature_alert").addClass('d-none');
+                        }, 10000);
+                    }
+                })
+            });
+
+
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#owl-example").owlCarousel({ loop: !0, nav: !0, thumbs: !0, autoplay: !0, margin: 0, autoplayTimeout: 1e4, touchDrag: !0, mouseDrag: !1, thumbsPrerendered: !0, responsiveClass: !0, responsive: { 0: { items: 1 }, 600: { items: 2 }, 1000: { items: 3 } } }), $("#screenshot-review").owlCarousel({ loop: !0, nav: !1, thumbs: !0, autoplay: !0, margin: 0, autoplayTimeout: 1e4, touchDrag: !0, mouseDrag: !1, thumbsPrerendered: !0, responsiveClass: !0, responsive: { 0: { items: 1 }, 600: { items: 2 }, 1000: { items: 4 } } }), $("#category-carousel").owlCarousel({ loop: !0, margin: 10, nav: !0, autoplay: !0, autoplayTimeout: 5e3, responsive: { 0: { items: 1 }, 600: { items: 2 }, 900: { items: 3 }, 1200: { items: 4 } } }), $("#review-carousel").owlCarousel({ loop: !0, margin: 20, nav: !0, autoplay: !0, autoplayTimeout: 5e3, responsive: { 0: { items: 1 }, 700: { items: 2 }, 1000: { items: 3 } } }), $("#client-logo").owlCarousel({ loop: !0, margin: 20, nav: !1, autoplay: !1, autoplayTimeout: 1e3, responsive: { 0: { items: 1 }, 600: { items: 3 }, 1000: { items: 5 } } });
+
+            $('#partners-feed').owlCarousel({
+                loop: true,
+                nav: true,
+                thumbs: true,
+                autoplay: true,
+                margin: 0,
+                autoplayTimeout: 10000,
+                touchDrag: true,
+                mouseDrag: false,
+                thumbsPrerendered: true,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 2
+                    },
+                    1050: {
+                        items: 4
+                    }
+                }
+            });
+
+            $('#featured-in').owlCarousel({
+                loop: true,
+                margin: 20,
+                nav: false,
+                autoplay: true,
+                autoplayTimeout: 1000,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 5
+                    }
+                }
+            })
+
+
+        });
+
+    </script>
+    <script>
+
+        $("a[href*='#']").unbind();
+        $(".tab-section-realautomation").unbind();
+        $('.os_names, .os_names>li').removeAttr('role');
+        $('.os_names>li>a').removeAttr('role aria-controls data-toggle');
+        $(".listBrowsersMainBox .nav-tabs a").on('click', function (e) {
+            // var this_off = $(this)[0].getBoundingClientRect();
+
+            // console.log(this_off);
+            e.preventDefault();
+
+
+            var target_pane = $(this).attr('href');
+            var isActive = $(this).hasClass('active');
+            $('.listBrowsersMainBox .nav-tabs a').removeClass('active');
+            $('.listBrowsersMainBox .tab-pane').removeClass('active');
+            if (isActive) {
+                $(this).removeClass('active');
+                $(target_pane).removeClass('active');
+            } else {
+                $(this).addClass('active');
+                $(target_pane).addClass('active');
+            }
+            // $(window).scrollTop(300);
+        });
+        $(window).scroll(function () {
+            var scroll = $(window).scrollTop();
+            if (scroll >= 240) {
+                $(".tab-section-realautomation").addClass("tab-section-fixed");
+            } else {
+                $(".tab-section-realautomation").removeClass("tab-section-fixed");
+            }
+        });
+
+    </script>
+    <script type="text/javascript">
+        function getParameterByName(e) { e = e.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]"); var a = new RegExp("[\\?&]" + e + "=([^&#]*)").exec(location.search); return null === a ? "" : decodeURIComponent(a[1].replace(/\+/g, " ")) } $(function () { null !== getParameterByName("utm_source") && $.cookie("utm_source", getParameterByName("utm_source"), { expires: 365, path: "/", domain: ".lambdatest.com", secure: !0 }), null !== getParameterByName("utm_campaign") && $.cookie("utm_campaign", getParameterByName("utm_campaign"), { expires: 365, path: "/", domain: ".lambdatest.com", secure: !0 }), null !== getParameterByName("utm_medium") && $.cookie("utm_medium", getParameterByName("utm_medium"), { expires: 365, path: "/", domain: ".lambdatest.com", secure: !0 }), null !== getParameterByName("utm_term") && $.cookie("utm_term", getParameterByName("utm_term"), { expires: 365, path: "/", domain: ".lambdatest.com", secure: !0 }) });
+    </script>
+
+    <!--Linkedin Ads -->
+    <script type="text/javascript">
+        _linkedin_data_partner_id = "359305";
+    </script>
+    <script type="text/javascript">
+        (function () {
+            var s = document.getElementsByTagName("script")[0];
+            var b = document.createElement("script");
+            b.type = "text/javascript";
+            b.async = true;
+            b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+            s.parentNode.insertBefore(b, s);
+        })();
+    </script>
+    <script defer src="https://cdn.lambdatest.com/assets/js/jwt-decode.min.js"></script>
+    <script defer src="https://cdn.lambdatest.com/assets/js/zohoscript.js?v=283"></script>
+    <noscript>
+        <img height="1" width="1" style="display:none;" alt="Linkedin Ads" src="https://dc.ads.linkedin.com/collect/?pid=359305&fmt=gif" />
+    </noscript>
+    <!--Linkedin Ads -->
+    <!-- Tracking scripts endsss here -->
+    <!-- read more button for web driver in selenium for jasmine framework-->
+    <script>
+        function webDriver() {
+            var dots = document.getElementById("dots");
+            var moreText = document.getElementById("webmore");
+            var btnText = document.getElementById("myDevBtn");
+
+            if (dots.style.display === "none") {
+                dots.style.display = "inline";
+                btnText.innerHTML = "Read more";
+                moreText.style.display = "none";
+            } else {
+                dots.style.display = "none";
+                btnText.innerHTML = "Read less";
+                moreText.style.display = "inline";
+            }
+        }
+    </script>
+    <!--web driver in selenium for jasmine framework ends here-->
+    <!-- ltbrowser download links -->
+    <script>
+        function ltBrowserAppUrl() {
+            let host = "https://downloads.lambdatest.com"
+            if (
+                navigator.platform.indexOf("Win") >= 0 ||
+                navigator.appVersion.indexOf("Window") >= 0
+            ) {
+                host = host + "/lt-browser/LTBrowser.exe";
+            } else if (
+                navigator.platform.indexOf("Linux") >= 0 ||
+                navigator.appVersion.indexOf("Linux") >= 0
+            ) {
+                host = host + "/lt-browser/LTBrowser.AppImage";
+
+            } else {
+                host = host + "/lt-browser/LTBrowser.dmg";
+            }
+            $(".downloadBtn").attr('href', host)
+        }
+        ltBrowserAppUrl();
+
+        async function sendAnalytics(eventName) {
+
+            let URL = "https://backend.lambdatest.com/api/analytics/event";
+            let payload = {
+                event: eventName,
+                properties: {
+                    source: window.location.href,
+                    userAgent: window.navigator.userAgent
+                }
+            };
+            if (getLTUserID() && getLTUserID() !== '') {
+                payload.userId = getLTUserID();
+            }
+            try {
+                await fetch(URL, {
+                    method: "POST",
+                    body: JSON.stringify(payload),
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    "mode": "no-cors",
+                });
+                if (eventName == 'lt-browser-downloaded') {
+                    dataLayer.push({
+
+                        'event': 'LT Browser',
+                        'eventCategory': 'LT Browser',
+                        'eventAction': 'Download',
+                        'eventLabel': 'LT Browser downloads',
+                    });
+                    if (window.amplitude) {
+                        amplitude.getInstance().logEvent('LT Browser Download',
+                            {
+                                source: window.location.href,
+                                userAgent: window.navigator.userAgent
+                            });
+                    }
+                }
+
+                console.log("Analytics Request successful ");
+                // console.log(user_id);
+            } catch (err) {
+                console.error("Analytics Request ", err);
+            }
+
+        }
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            var url1 = $("#video1 .LTVideo").attr('src');
+            var url2 = $("#video2 .LTVideo").attr('src');
+            if (url1) {
+                $("#video1").on('hide.bs.modal', function () {
+                    $(".LTVideo").attr('src', '');
+                });
+                $("#video1").on('show.bs.modal', function () {
+                    $(".LTVideo").attr('src', url1);
+                });
+            }
+            if (url2) {
+                $("#video2").on('hide.bs.modal', function () {
+                    $(".LTVideo").attr('src', '');
+                });
+                $("#video2").on('show.bs.modal', function () {
+                    $(".LTVideo").attr('src', url2);
+                });
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        (function () {
+
+            var youtube = document.querySelectorAll(".footer_iframe");
+
+            for (var i = 0; i < youtube.length; i++) {
+
+                var source = "https://img.youtube.com/vi/" + youtube[i].dataset.embed + "/sddefault.jpg";
+
+                var image = new Image();
+                image.src = source;
+                image.addEventListener("load", function () {
+                    youtube[i].appendChild(image);
+                }(i));
+
+                youtube[i].addEventListener("click", function () {
+
+                    var iframe = document.createElement("iframe");
+
+                    iframe.setAttribute("frameborder", "0");
+                    iframe.setAttribute("allowfullscreen", "");
+                    iframe.setAttribute("src", "https://www.youtube.com/embed/" + this.dataset.embed + "?autoplay=1&mute=1");
+
+                    this.innerHTML = "";
+                    this.appendChild(iframe);
+                });
+            };
+
+        })();
+    </script>
+    <script type="text/javascript" src="https://crm.zoho.com/crm/javascript/zcga.js"></script>
+    <script type="text/javascript">window.NREUM || (NREUM = {}); NREUM.info = { "beacon": "bam.nr-data.net", "licenseKey": "NRJS-15a9ea9b6e428dbd49e", "applicationID": "1241459542", "transactionName": "ZlYEZxdTWERUWxZYX18cM0EMHV9ZUV0aH0BZQw==", "queueTime": 0, "applicationTime": 0, "atts": "ShEHEV9JS0o=", "errorBeacon": "bam.nr-data.net", "agent": "" }</script>
+</body>
+
+</html>
